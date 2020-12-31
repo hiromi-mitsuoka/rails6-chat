@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   
   # editアクションではyour_layoutファイルを使う
-  layout "your_layout", only: [:edit]
+  # layout "your_layout", only: [:edit]
 
   # GET /resource/sign_up
   # def new

@@ -13,16 +13,20 @@
   </head>
 
   <body>
-    <header>
+    <%= render 'layouts/sidebar' %>
       
-      <!--confirm設定したい-->
-      <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      
-    </header>
     <!--Devise-->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+    <h1>TODO</h1>
+    <ul>
+      <li>パスワード再設定をnameで行いたい</li>
+    </ul>
+    
   </body>
 </html>

@@ -6,10 +6,13 @@ class HomeController < ApplicationController
     # user_signed_in? : ログイン済みの時はtrue
     # current_user : ログイン済みの場合はログインユーザーを返す
     # ログイン済みの場合、crrent_userのidをログに書き込む
-    if user_sign_in?
-      loggeer.debug current_user.id
-    end
+    # if user_signed_in?
+    #   loggeer.debug current_user.id
+    # end
+    
+    @users = User.all
   end
+
   
   
 end
