@@ -26,6 +26,15 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+
+gem 'devise'
+# 日本語使用
+gem 'rails-i18n'
+gem 'devise-i18n'
+# bootstrap
+gem 'devise-bootstrap-views'
+gem 'bootstrap-sass'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'

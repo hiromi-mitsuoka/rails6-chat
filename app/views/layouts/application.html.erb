@@ -7,9 +7,22 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!--viewport-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
 
   <body>
+    <header>
+      
+      <!--confirm設定したい-->
+      <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      
+    </header>
+    <!--Devise-->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
     <%= yield %>
   </body>
 </html>
