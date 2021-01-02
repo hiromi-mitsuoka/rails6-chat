@@ -21,6 +21,19 @@ document.addEventListener('turbolinks:load', () => {
     }
     
   })
+  
+  
+  // ページを開いた時にページの一番下に移動
+  
+  const documentElement = document.documentElement
+  // js.erb内でも使用できるように変数を決定
+  window.messageContent = document.getElementById("message_content")
+  
+  window.scrollToBottom = () => {
+    window.scroll(0, documentElement.scrollHeight)
+  }
+  
+  scrollToBottom()
 })
 
 
