@@ -35,6 +35,8 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views'
 gem 'bootstrap-sass'
 
+gem 'faker'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'

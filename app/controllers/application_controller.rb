@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   
   # devise_controller? : deviseコントローラーの時だけtrue
   before_action :configure_permitted_parameters, if: :devise_controller?
+  # 全ページログイン必須
+  before_action :authenticate_user!
   
   
   private

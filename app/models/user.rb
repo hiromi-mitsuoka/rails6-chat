@@ -7,4 +7,6 @@ class User < ApplicationRecord
          
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true
+  
+  has_many :messages
 end

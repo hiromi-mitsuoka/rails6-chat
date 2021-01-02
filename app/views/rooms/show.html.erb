@@ -1,0 +1,9 @@
+<h1>Rooms#show</h1>
+
+<div id="message-container">
+  <%= render @messages %>
+  <!--render partial: "messages/message", collection: @messages-->
+  <!--eachで一つずつ呼び出すのではなく、collectionを設定し、@messagesの中身を1つずつ取り出す-->
+</div>
+
+<%= render 'footer' %>
