@@ -31,3 +31,10 @@ footer{
     margin: 0 auto;
     background-color: #fff;
 }
+
+// ボタン無効化時のスタイル
+.btn-primary.disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    cursor: auto;
+}

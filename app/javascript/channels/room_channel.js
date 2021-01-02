@@ -34,6 +34,31 @@ document.addEventListener('turbolinks:load', () => {
   }
   
   scrollToBottom()
+  
+  
+  
+  // フォームが入力された時、空欄でなければ有効化、空欄なら無効化
+  const messageButton = document.getElementById("message-button")
+  
+  // disabledのtoggle関数
+  const button_activation = () => {
+    if (messageContent.value === ""){
+      messageButton.classList.add('disabled')
+    }else{
+      messageButton.classList.remove('disabled')
+    }
+  }
+  
+  // フォーム入力時の動作
+  messageContent.addEventListener('input', () => {
+    button_activation()
+  })
+  
+  // 送信ボタンを押した時に無効化
+  messageButton.addEventListener('click', () => {
+    messageButton.classList.add('disabled')
+  })
+  
 })
 
 
