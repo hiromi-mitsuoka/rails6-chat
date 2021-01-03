@@ -38,3 +38,8 @@ footer{
     border-color: #6c757d;
     cursor: auto;
 }
+
+// フォームサイズを自由に変更できないように変更
+#message_content {
+  resize: none;
+}

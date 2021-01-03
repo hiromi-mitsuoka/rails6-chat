@@ -11,9 +11,13 @@ document.addEventListener('turbolinks:load', () => {
   }
   
   consumer.subscriptions.create("RoomChannel", {
-    connected(){}, 
+    connected(){
+      
+    }, 
     
-    disconnected(){},
+    disconnected(){
+      
+    },
     
     received(data){
       // サーバー側から受け取ったHTMLを最後に加える
@@ -23,8 +27,6 @@ document.addEventListener('turbolinks:load', () => {
   })
   
   
-  // ページを開いた時にページの一番下に移動
-  
   const documentElement = document.documentElement
   // js.erb内でも使用できるように変数を決定
   window.messageContent = document.getElementById("message_content")
@@ -33,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
     window.scroll(0, documentElement.scrollHeight)
   }
   
+  // 最初にページ一番下に移動
   scrollToBottom()
   
   
@@ -52,13 +55,57 @@ document.addEventListener('turbolinks:load', () => {
   // フォーム入力時の動作
   messageContent.addEventListener('input', () => {
     button_activation()
+    changeLineCheck()
   })
   
   // 送信ボタンを押した時に無効化
   messageButton.addEventListener('click', () => {
     messageButton.classList.add('disabled')
+    changeLineCount(1)
   })
   
+  // フォームの最大行数
+  const maxLineCount = 10
+  
+  // 入力メッセージの行数を調べる
+  const getLineCount = () => {
+    return (messageContent.value + '\n').match(/\r?\n/g).length;
+  }
+  
+  let lineCount = getLineCount()
+  let newLineCount
+  
+  const changeLineCheck = () => {
+    // 現在の入力行数を取得
+    newLineCount = Math.min(getLineCount(), maxLineCount)
+    // 以前の入力行数と異なる場合は変更
+    if (lineCount !== newLineCount) {
+      changeLineCount(newLineCount)
+    }
+  }
+  
+  
+  const footer = document.getElementById('footer')
+  let footerHeight = footer.scrollHeight
+  let newFooterHeight, footerHeightDiff
+  
+  const changeLineCount = (newLineCount) => {
+    // フォームの行数変更
+    messageContent.rows = lineCount = newLineCount
+    // 新しいfooterの高さ取得し、違いを計算
+    newFooterHeight = footer.scrollHeight
+    footerHeightDiff = newFooterHeight - footerHeight
+    // 新しいfooterの高さをチャット欄のpadding-bottomに反映しスクロール
+    // 行数が増える時と減る時で操作順を変更しないとうまくいかない
+    if (footerHeightDiff > 0){
+      messageContainer.style.paddingBottom = newFooterHeight + "px"
+      window.scrollBy(0, footerHeightDiff)
+    }else{
+      window.scrollBy(0, footerHeightDiff)
+      messageContainer.style.paddingBottom = newFooterHeight + "px"
+    }
+    footerHeight = newFooterHeight
+  }
 })
 
 
