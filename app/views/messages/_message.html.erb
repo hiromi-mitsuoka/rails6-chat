@@ -1,4 +1,7 @@
 <div class="message" id="message-<%= message.id %>">
   <p><%= message.id %>: <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %></p>
+  <% if message.image? %>
+    <%= image_tag message.image.url %>
+  <% end %>
   <%= simple_format(h message.content) %>
 </div>
