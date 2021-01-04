@@ -106,44 +106,30 @@ document.addEventListener('turbolinks:load', () => {
     }
     footerHeight = newFooterHeight
   }
+  
+  
+  // 全体トークの無限スクロール対応
+  
+  let oldestMessageId
+  // メッセージの追加読み込みの可否を決定
+  window.showAdditionally = true
+  
+  window.addEventListener('scroll', () => {
+    if (documentElement.scrollTop === 0 && showAdditionally) {
+      showAdditionally = false
+      // 表示済みのメッセージの中で一番古いidを取得
+      oldestMessageId = document.getElementsByClassName('message')[0].id.replace(/[^0-9]/g, '')
+      // Ajaxを利用してメッセージの追加読み込みリクエストを送る。最も古いメッセージidも込み
+      $.ajax({
+        type: "GET",
+        url: "/show_additionally",
+        cache: false,
+        data: { oldest_message_id: oldestMessageId, remote: true }
+      })
+    }
+  }, { passive: true });
 })
 
 
 
 
-// const chatChannel = consumer.subscriptions.create("RoomChannel", {
-  
-//   // フロント側からサーバー側を監視できているかを確認できた時に動く
-//   connected() {
-//     console.log('connected!')
-//   },
-
-//   disconnected() {
-//     // Called when the subscription has been terminated by the server
-//   },
-
-//   // dataを受け取った時のアクション
-//   received(data) {
-//     // test
-//     // return alert(data['message']);
-    
-//     return $('#messages').append(data['message']);
-//   },
-
-//   // 実行されるとConsumer（Websocketコネクションのクライアント）になった
-//   // RoomChannel#speak({ message: message})が呼ばれる
-//   speak: function(message) {
-//     return this.perform('speak', {
-//       message: message
-//     });
-//   }
-// });
-
-// // // Enterキー押すと送信
-// // $(document).on('keypress', '[data-behavior~=room_speaker]', (event) => {
-// //   if(event.keyCode === 13){
-// //     chatChannel.speak(event.target.value);
-// //     event.target.value = '';
-// //     return event.preventDefault();
-// //   }
-// // });

@@ -17,6 +17,11 @@
 // bootstrap
 @import "bootstrap/scss/bootstrap";
 
+.sidebar{
+  position: fixed;
+  background-color: #ada;
+}
+
 // メッセージ一覧
 #message-container {
   max-width: 768px;
