@@ -12,7 +12,7 @@ message_count = 500
 ApplicationRecord.transaction do
   user_count.times do |n|
     User.find_or_create_by!(username: "test#{n+1}", email: "test#{n+1}@example.com") do |user|
-      user.password = "passwordpassword"
+      user.password = "password"
     end
   end
   
