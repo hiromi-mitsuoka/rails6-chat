@@ -30,6 +30,7 @@ document.addEventListener('turbolinks:load', () => {
   const documentElement = document.documentElement
   // js.erb内でも使用できるように変数を決定
   window.messageContent = document.getElementById("message_content")
+  window.imagesContent = document.getElementById("images_content")
   
   window.scrollToBottom = () => {
     window.scroll(0, documentElement.scrollHeight)
@@ -45,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   
   // disabledのtoggle関数
   const button_activation = () => {
-    if (messageContent.value === ""){
+    if (messageContent.value === "" && imagesContent.value === ""){
       messageButton.classList.add('disabled')
     }else{
       messageButton.classList.remove('disabled')
@@ -56,6 +57,11 @@ document.addEventListener('turbolinks:load', () => {
   messageContent.addEventListener('input', () => {
     button_activation()
     changeLineCheck()
+  })
+  
+  // 画像フォルダにセット時の動作
+  imagesContent.addEventListener('input', () => {
+    button_activation()
   })
   
   // 送信ボタンを押した時に無効化
