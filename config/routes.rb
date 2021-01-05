@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get 'rooms/show'
   devise_for :users
   resources :users, :only => [:index, :show]
-  root "users#index"
+  root to: "users#index"
   resources :dm_messages, :only => [:create]
   resources :dm_rooms, :only => [:create, :show, :index]
-  # root to: "home#index"
 end
