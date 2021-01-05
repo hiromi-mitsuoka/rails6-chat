@@ -1,0 +1,20 @@
+<h1>Users#show</h1>
+
+<h2><%= @user.username %></h2>
+
+<% if @user.id == current_user.id %>
+  本人です
+<% else %>
+  <% if @isDmRoom == true %>
+    <p><a href="/dm_rooms/<%= @dmRoomId %>">チャット画面へ</a></p>
+  <% else %>
+    <%= form_with model: @dmRoom do |f| %>
+      <%= fields_for @dmEntry do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to "ユーザー一覧に戻る", users_path %>

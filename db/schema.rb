@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_005756) do
+ActiveRecord::Schema.define(version: 2021_01_05_063341) do
+
+  create_table "dm_entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "dm_room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dm_room_id"], name: "index_dm_entries_on_dm_room_id"
+    t.index ["user_id"], name: "index_dm_entries_on_user_id"
+  end
+
+  create_table "dm_messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "dm_room_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dm_room_id"], name: "index_dm_messages_on_dm_room_id"
+    t.index ["user_id"], name: "index_dm_messages_on_user_id"
+  end
+
+  create_table "dm_rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -34,4 +59,8 @@ ActiveRecord::Schema.define(version: 2021_01_02_005756) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "dm_entries", "dm_rooms"
+  add_foreign_key "dm_entries", "users"
+  add_foreign_key "dm_messages", "dm_rooms"
+  add_foreign_key "dm_messages", "users"
 end

@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :messages, only: :create
   get 'rooms/show'
   devise_for :users
-  root to: "home#index"
+  resources :users, :only => [:index, :show]
+  root "users#index"
+  resources :dm_messages, :only => [:create]
+  resources :dm_rooms, :only => [:create, :show, :index]
+  # root to: "home#index"
 end

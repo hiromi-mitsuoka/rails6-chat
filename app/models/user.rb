@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   
   has_many :messages
+  has_many :dm_entries, dependent: :destroy
+  has_many :dm_messages, dependent: :destroy
 end
