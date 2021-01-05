@@ -7,7 +7,8 @@ class DmRoomsController < ApplicationController
     @entry2 = DmEntry.create(params.require(:dm_entry)
                                   .permit(:user_id, :dm_room_id)
                                   .merge(dm_room_id: @dm_room.id))
-    redirect_to "/dm_rooms/#{@dm_room.id}"
+    # redirect_to "/dm_rooms/#{@dm_room.id}"
+    redirect_back dm_room_path(@dm_room_id)
   end
   
   def show

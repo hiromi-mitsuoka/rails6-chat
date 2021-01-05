@@ -6,7 +6,8 @@
   本人です
 <% else %>
   <% if @isDmRoom == true %>
-    <p><a href="/dm_rooms/<%= @dmRoomId %>">チャット画面へ</a></p>
+    <!--<p><a href="/dm_rooms/<%#= @dmRoomId %>">チャット画面へ</a></p>-->
+    <%= link_to "チャット画面へ", dm_room_path(@dmRoomId) %>
   <% else %>
     <%= form_with model: @dmRoom do |f| %>
       <%= fields_for @dmEntry do |e| %>

@@ -48,3 +48,16 @@ footer{
 #message_content {
   resize: none;
 }
+
+// DM
+// メッセージ一覧
+#dm_message-container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1rem 1rem 8rem 1rem;
+}
+
+// フォームサイズを自由に変更できないように変更
+#dm_message_content {
+  resize: none;
+}

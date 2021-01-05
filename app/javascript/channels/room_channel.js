@@ -26,6 +26,7 @@ document.addEventListener('turbolinks:load', () => {
     
   })
   
+  console.log("test room_channel")
   
   const documentElement = document.documentElement
   // js.erb内でも使用できるように変数を決定

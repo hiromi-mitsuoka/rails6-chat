@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     @currentUserDmEntry = DmEntry.where(user_id: current_user.id)
     @userDmEntry = DmEntry.where(user_id: @user.id)
     
-    if @user.id == current_user.id
-    else
+    unless @user.id == current_user.id
       @currentUserDmEntry.each do |cu|
         @userDmEntry.each do |u|
           if cu.dm_room_id == u.dm_room_id then
@@ -23,8 +22,7 @@ class UsersController < ApplicationController
         end
       end
       
-      if @isDmRoom
-      else
+      unless @isDmRoom
         @dmRoom = DmRoom.new
         @dmEntry = DmEntry.new
       end

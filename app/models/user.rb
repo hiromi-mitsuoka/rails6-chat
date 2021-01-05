@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :messages
   has_many :dm_entries, dependent: :destroy
   has_many :dm_messages, dependent: :destroy
+  has_many :dm_rooms, through: :dm_entries
 end
