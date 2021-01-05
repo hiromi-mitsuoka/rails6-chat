@@ -4,8 +4,10 @@ class Message < ApplicationRecord
   # imageのみ投稿も行いため一旦削除
   # validates :content, presence: true
   
-  # imageカラムとImageUploaderクラスを紐付け
-  mount_uploader :image, ImageUploader
+  # imagesカラムとImageUploaderクラスを紐付け
+  mount_uploaders :images, ImageUploader
+  # SQLiteを使用している場合の追記
+  # serialize :images, JSON
   
   # データ作成後にjob実行
   # after_create_commit { MessageBroadcastJob.perform_later self }
