@@ -3,6 +3,11 @@
 <h3><%= link_to "全体トークルームへ", rooms_show_path %></h2>
 <ul>
   <% @users.each do |user| %>
-    <li><%= link_to user.username, user_path(user) %></li>
+    <li>
+      <% if user.avatar? %>
+        <%= image_tag user.avatar.url %>
+      <% end %>
+      <%= link_to user.username, user_path(user) %>
+    </li>
   <% end %>
 </ul>
