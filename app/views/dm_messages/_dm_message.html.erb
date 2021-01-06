@@ -1,4 +1,9 @@
 <div class="message" id="dm_messages dm_message-<%= dm_message.id %>" data-room_id="<%= @dm_room_id %>">
-  <p><%= dm_message.user.username %>: <%= l dm_message.created_at, format: "%-d日(%a) %H:%M" %></p>
+  <p><% if dm_message.user.avatar? %>
+      <%= image_tag dm_message.user.avatar.url, class: "avatar" %>
+    <% else %>
+      <%= image_tag "avatar.png", class: "avatar" %>
+    <% end %>
+    <%= dm_message.user.username %>: <%= l dm_message.created_at, format: "%-d日(%a) %H:%M" %></p>
   <%= simple_format(h dm_message.content) %>
 </div>
