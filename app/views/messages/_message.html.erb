@@ -1,12 +1,13 @@
 <div class="message" id="message-<%= message.id %>">
-  <p><% if message.user.avatar? %>
+  <p>
+    <% if message.user.avatar? %>
       <%= image_tag message.user.avatar.url, class: "avatar" %>
     <% else %>
       <%= image_tag "avatar.png", class: "avatar" %>
     <% end %>
-    <%= message.id %>: <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %></p>
+    <%= message.id %>: <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %>
+  </p>
   <% if message.images? %>
-    <%#= image_tag message.image.url %>
     <% message.images.each do |image| %>
       <%= image_tag image.url %>
     <% end %>
