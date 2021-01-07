@@ -9,6 +9,8 @@ class RoomsController < ApplicationController
     @messages = Message.includes(:user).order(:id).last(50)
     # message投稿時に利用
     @message = current_user.messages.build
+    
+    @messenger = current_user
   end
   
   def show_additionally

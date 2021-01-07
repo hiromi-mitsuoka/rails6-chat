@@ -15,7 +15,14 @@ class Message < ApplicationRecord
   belongs_to :user
   
   def template
-    ApplicationController.renderer.render partial: "messages/message",
-                                          locals: { message: self }
+    # ApplicationController.renderer.render partial: "messages/message",
+    #                                       locals: { message: self }
+                                          
+    # 変更前
+    # ApplicationController.renderer.render('messages/message', locals: { post: @post })
+    # 変更後
+    # ApplicationController.render_with_signed_in_user(user, 'posts/post', locals: { post: @post })
+    ApplicationController.render_with_signed_in_user(@message_user, partial: "messages/message",
+                                          locals: { message: self })
   end
 end
