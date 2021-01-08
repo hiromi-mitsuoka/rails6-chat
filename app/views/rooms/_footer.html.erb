@@ -1,4 +1,5 @@
-<footer class="fixed-bottom" id="footer">
+<footer id="footer">
+  <div class="footer-center">
   <!--Ajaxを利用するため、local: trueは無し-->
   <%= form_with model: @message do |f| %>
     <div class="form-group">
@@ -12,4 +13,5 @@
       <%= f.submit "送信", class: "btn btn-primary btn-block disabled", id: "message-button" %>
     </div>
   <% end %>
+  </div>
 </footer>

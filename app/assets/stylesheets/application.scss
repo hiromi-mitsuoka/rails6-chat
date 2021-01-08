@@ -17,24 +17,96 @@
 // bootstrap
 @import "bootstrap/scss/bootstrap";
 
-.sidebar{
-  position: fixed;
-  background-color: #ada;
+$yellow : #FFE500;
+$pink: #C14F7E;
+$black: #403734;
+$bg-white: #F7F7F7;
+
+*{
+  padding: 0;
+  // margin: 0!important;
 }
 
+a, p, h1, h2, h3,h4, h5{
+  color: $black;
+}
+
+body{
+  position: relative;
+  background-color: $bg-white;
+}
+
+.sidebar{
+  position: fixed;
+  background-color: $yellow;
+  width: 25%;
+  height: 100%;
+}
+
+.right-box{
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+// =====devise=====
+$m-top: 30px;
+$m-bottom: 30px;
+$p-top: 30px;
+$p-bottom: 30px;
+
+
+.text-center{
+  text-align: center;
+}
+
+.field{
+  margin-bottom: $m-bottom;
+}
+
+.m-top{
+  margin-top: $m-top;
+}
+.m-bottom{
+  margin-bottom: $m-bottom;
+}
+.p-top{
+  padding-top: $p-top;
+}
+.p-bottom{
+  padding-bottom: $p-bottom;
+}
+
+
 // メッセージ一覧
+.messages-room{
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+
 #message-container {
   max-width: 768px;
   margin: 0 auto;
-  padding: 1rem 1rem 8rem 1rem;
+  padding: 1rem 1rem 15rem 1rem;
+  background-color: $bg-white;
 }
 
 // メッセージ投稿フォーム
 footer{
+    width: 100%;
     max-width: 700px;
-    padding: 1rem;
-    margin: 0 auto;
     background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    background-color: $bg-white;
+    .footer-center{
+      max-width: 700px;
+      margin: 0 auto;
+      
+    }
 }
 
 // ボタン無効化時のスタイル
