@@ -5,6 +5,19 @@
   <!--eachで一つずつ呼び出すのではなく、collectionを設定し、@messagesの中身を1つずつ取り出す-->
 </div>
 
+<div id="container">  <!-- video の上に canvas をオーバーレイするための div 要素 -->
+  <video id="video" width="400" height="300" autoplay></video>  <!-- カメラ映像を流す video -->
+  <canvas id="canvas" width="400" height="300"></canvas>        <!-- 重ねて描画する canvas -->
+</div>
+<div id="dat"></div>  <!-- データ表示用 div 要素 -->
 
 <%= render 'footer' %>
 </div>
+
+<%#= javascript_pack_tag 'custom/application' %>
+
+<%#= javascript_pack_tag 'custom/clmtrackr' %>
+<%#= javascript_pack_tag 'custom/model_pca_20_svm_emotion' %>
+<%#= javascript_pack_tag 'custom/emotionClassifier' %>
+<%#= javascript_pack_tag 'custom/emotionModel' %>
+<%#= javascript_pack_tag 'custom/face_tracker' %>
