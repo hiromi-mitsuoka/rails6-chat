@@ -9,18 +9,20 @@ class ApplicationController < ActionController::Base
   private
   
     # ログアウト後のリダイレクト先変更
-    # def after_sign_out_path_for
+    def after_sign_out_path_for(user)
       # root_pathからsign_inに変更
-      # new_user_session_path
-    # end
+      new_user_session_path
+    end
     
     # サインアップ時のリダイレクト先
-    # def after_sign_up_path_for
-    # end
+    def after_sign_up_path_for(user)
+      root_path
+    end
     
     # サインイン時のリダイレクト先変更
-    # def after_sign_in_path_for
-    # end
+    def after_sign_in_path_for(user)
+      root_path
+    end
   
   
   protected
