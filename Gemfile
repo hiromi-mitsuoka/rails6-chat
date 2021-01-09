@@ -39,6 +39,8 @@ gem 'faker'
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
