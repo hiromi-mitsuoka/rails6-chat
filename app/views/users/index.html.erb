@@ -1,15 +1,21 @@
-<h1>Users#index</h1>
-
-<h3><%= link_to "全体トークルームへ", rooms_show_path %></h2>
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <% if user.avatar? %>
-        <%= image_tag user.avatar.url, class: "avatar" %>
-      <% else %>
-        <%= image_tag "avatar.png", class: "avatar" %>
-      <% end %>
-      <%= link_to user.username, user_path(user) %>
-    </li>
-  <% end %>
-</ul>
+<div class="display-box">
+<div>
+<% if user_signed_in? %>
+  <h3><%= link_to "全体トークルームへ", rooms_show_path %></h2>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <% if user.avatar? %>
+          <%= image_tag user.avatar.url, class: "avatar" %>
+        <% else %>
+          <%= image_tag "avatar.png", class: "avatar" %>
+        <% end %>
+        <%= link_to user.username, user_path(user) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3 class="text-center"><%= link_to "ログインへ", new_user_session_path %></h3>
+<% end %>
+</div>
+</div>

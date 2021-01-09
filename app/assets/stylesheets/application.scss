@@ -22,6 +22,8 @@ $pink: #C14F7E;
 $black: #403734;
 $bg-white: #F7F7F7;
 
+$w768: 768px;
+
 *{
   padding: 0;
   // margin: 0!important;
@@ -29,6 +31,11 @@ $bg-white: #F7F7F7;
 
 a, p, h1, h2, h3,h4, h5{
   color: $black;
+  transition: 1.0s ;
+  &:hover{
+    color: $pink;
+    text-decoration: none;
+  }
 }
 
 body{
@@ -51,11 +58,24 @@ body{
   right: 0;
 }
 
+.display-box{
+  max-width: 700px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 // =====devise=====
 $m-top: 30px;
 $m-bottom: 30px;
 $p-top: 30px;
 $p-bottom: 30px;
+
+$form-width: 250px;
+$form-height: 40px;
 
 
 .text-center{
@@ -79,18 +99,88 @@ $p-bottom: 30px;
   padding-bottom: $p-bottom;
 }
 
+#error_explanation, h2{
+  &:hover{
+    color: $black;
+  }
+}
 
-// メッセージ一覧
+.notice{
+  max-width: $w768;
+  margin: 0 auto;
+  color: green;
+  &:hover{
+    color: green;
+  }
+}
+
+.alert{
+  max-width: $w768;
+  margin: 0 auto;
+  color: red;
+  &:hover{
+    color: red;
+  }
+}
+
+.circle-form{
+  width: $form-width;
+  height: $form-height;
+  border-radius: $form-height / 2;
+  outline: none;
+  cursor: pointer;
+  border: $black 0.5px solid;
+  padding: 20px;
+}
+
+.btn{
+  width: $form-width;
+  height: $form-height;
+  border-radius: $form-height / 2;
+  outline: none;
+  border: $black 0.5px solid;
+  background-color: $pink;
+  color: white;
+  &:hover{
+    color: white;
+  }
+}
+
+.btn-delete{
+  margin-top: $m-top;
+  margin-bottom: $m-bottom;
+  background-color: #111;
+  color: $yellow;
+  &:hover{
+    color: $yellow;
+  }
+}
+
+
+// =====users======
+// .users-box{
+//   max-width: 500px;
+//   height: 100vh;
+//   margin: 0 auto;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+
+
+
+// =====rooms======
 .messages-room{
-  max-width: 768px;
+  max-width: $w768;
   margin: 0 auto;
   position: relative;
 }
 
 #message-container {
-  max-width: 768px;
+  max-width: $w768;
   margin: 0 auto;
-  padding: 1rem 1rem 15rem 1rem;
+  padding: 1rem 1rem 8rem 1rem;
   background-color: $bg-white;
 }
 
@@ -98,7 +188,6 @@ $p-bottom: 30px;
 footer{
     width: 100%;
     max-width: 700px;
-    background-color: #fff;
     position: fixed;
     bottom: 0;
     background-color: $bg-white;
@@ -124,7 +213,7 @@ footer{
 // DM
 // メッセージ一覧
 #dm_message-container {
-  max-width: 768px;
+  max-width: $w768;
   margin: 0 auto;
   padding: 1rem 1rem 8rem 1rem;
 }

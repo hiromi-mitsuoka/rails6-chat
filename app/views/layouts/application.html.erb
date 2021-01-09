@@ -14,21 +14,15 @@
 
   <body>
     <%= render 'layouts/sidebar' %>
-      
-    <!--Devise-->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     
     <div class="container">
       <div class="right-box">
+        <!--Devise-->
+          <p class="notice text-center"><%= notice %></p>
+          <p class="alert text-center"><%= alert %></p>
         <%= yield %>
       </div>
     </div>
-    
-    <h1>TODO</h1>
-    <ul>
-      <li>パスワード再設定をnameで行いたい</li>
-    </ul>
     
   </body>
 </html>
