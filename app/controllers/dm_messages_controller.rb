@@ -8,7 +8,7 @@ class DmMessagesController < ApplicationController
                                           .merge(user_id: current_user.id))
       # templateはdm_messsage.rbで定義
       ActionCable.server.broadcast 'dm_room_channel', dm_message: @dm_message.template
-      # redirect_to "/dm_rooms/#{@dm_message.dm_room_id}"
+      redirect_to "/dm_rooms/#{ @dm_message.dm_room_id }"
     else
       redirect_back(fallback_location: root_path)
     end

@@ -1,14 +1,21 @@
 <div class="display-box">
 <div>
 
-<h2><%= @user.username %></h2>
+<h2>
+  <% if @user.avatar? %>
+    <%= image_tag @user.avatar.url, class: "avatar" %>
+  <% else %>
+    <%= image_tag "avatar.png", class: "avatar" %>
+  <% end %>
+  <%= @user.username %>
+  </h2>
 
 <% if @user.id == current_user.id %>
   本人です
 <% else %>
   <% if @isDmRoom == true %>
     <!--<p><a href="/dm_rooms/<%#= @dmRoomId %>">チャット画面へ</a></p>-->
-    <%= link_to "チャット画面へ", dm_rooms_path(@dmRoomId) %>
+    <%= link_to "チャット画面へ", dm_room_path(@dmRoomId) %>
   <% else %>
     <%= form_with model: @dmRoom do |f| %>
       <%= fields_for @dmEntry do |e| %>

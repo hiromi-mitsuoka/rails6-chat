@@ -1,7 +1,13 @@
 <sidebar class="sidebar">
   <ul>
     <% if user_signed_in? %>
-      <li><strong><%= link_to current_user.username , "#" %></strong></li>
+      <li>
+        <% if current_user.avatar? %>
+          <%= image_tag current_user.avatar.url, class: "avatar" %>
+        <% else %>
+          <%= image_tag "avatar.png", class: "avatar" %>
+        <% end %>
+        <strong><%= link_to current_user.username , "#" %></strong></li>
       <li><%= link_to "プロフィール編集", edit_user_registration_path %></li>
       <li><%= link_to "ログアウト", destroy_user_session_path, 
               method: :delete, 

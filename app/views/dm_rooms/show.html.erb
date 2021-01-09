@@ -1,30 +1,10 @@
-<h1>DM</h1>
-
-<h4>参加者</h4>
-
-<% @dm_entries.each do |e| %>
-  <p><strong><%= link_to e.user.username, user_path(e.user_id) %></strong></p>
-<% end %>
-
-<h4>ルームID</h4>
-<%= @dm_room.id %>
-
-<hr>
-
 <div id="dm_message-container">
   <% if @dm_messages.present? %>
     <%= render @dm_messages %>
-    <!--<%# @dm_messages.each do |m| %>-->
-    <!--  <strong><%#= m.content %></strong>-->
-    <!--  <small>by <strong><a href="/users/<%#= m.user_id %>"><%#= m.user.username %></a></strong></small>-->
-    <!--  <hr>-->
-    <!--<%# end %>-->
   <% else %>
-    <h3 class="text_center">メッセージはまだありません</h3>
+    <h3 class="text-center">メッセージはまだありません</h3>
   <% end %>
 </div>
-
-<%= link_to "ユーザー一覧に戻る", users_path %>
 
 
 

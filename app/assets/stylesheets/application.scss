@@ -43,13 +43,6 @@ body{
   background-color: $bg-white;
 }
 
-.sidebar{
-  position: fixed;
-  background-color: $yellow;
-  width: 25%;
-  height: 100%;
-}
-
 .right-box{
   width: 75%;
   height: 100%;
@@ -65,6 +58,20 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// =====sidebar=====
+.sidebar{
+  position: fixed;
+  background-color: $yellow;
+  width: 25%;
+  height: 100%;
+  padding: 3rem 4rem;
+}
+
+li {
+  list-style: none;
+  padding: 0.5rem;
 }
 
 
@@ -158,14 +165,7 @@ $form-height: 40px;
 
 
 // =====users======
-// .users-box{
-//   max-width: 500px;
-//   height: 100vh;
-//   margin: 0 auto;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
+
 
 
 
@@ -226,5 +226,6 @@ footer{
 // avatar
 .avatar{
   border-radius: 50%;
-  width: 50px;
+  width: 40px;
+  margin-right: 10px;
 }

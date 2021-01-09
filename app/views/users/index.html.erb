@@ -10,7 +10,7 @@
         <% else %>
           <%= image_tag "avatar.png", class: "avatar" %>
         <% end %>
-        <%= link_to user.username, user_path(user) %>
+        <%= link_to user.username + "にメッセージを送る", user_path(user) %>
       </li>
     <% end %>
   </ul>

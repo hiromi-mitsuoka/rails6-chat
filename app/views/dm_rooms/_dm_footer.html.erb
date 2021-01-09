@@ -1,4 +1,5 @@
-<footer class="fixed-bottom" id="dm_footer">
+<footer id="dm_footer">
+  <div class="footer-center">
   <!--Ajaxを利用するため、local: trueは無し-->
   <%= form_with model: @dm_message do |f| %>
   
@@ -7,9 +8,9 @@
       <%= f.text_area :content, class: "form-control", rows: "1", maxlength: "500" %>
     </div>
     
-    <!--<div class="form-group">-->
-    <!--  <%#= f.file_field :images, class: "form-control", id: "dm_images_content", multiple: true %>-->
-    <!--</div>-->
+    <div class="form-group">
+      <%= f.file_field :images, class: "form-control", id: "dm_images_content", multiple: true %>
+    </div>
     
     <%= f.hidden_field :dm_room_id, value: @dm_room.id %>
     
@@ -17,4 +18,5 @@
       <%= f.submit "送信", class: "btn btn-primary btn-block disabled", id: "dm_message-button" %>
     </div>
   <% end %>
+  </div>
 </footer>

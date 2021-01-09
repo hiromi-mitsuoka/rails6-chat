@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   root to: "users#index"
   resources :users, :only => [:index, :show]
   resources :dm_messages, :only => [:create]
-  resources :dm_rooms, :only => [:create, :show, :index]
+  resources :dm_rooms, :only => [:create, :show]
 end
