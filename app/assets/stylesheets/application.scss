@@ -33,7 +33,7 @@ a, p, h1, h2, h3,h4, h5{
   color: $black;
   transition: 1.0s ;
   &:hover{
-    color: $pink;
+    color: $black;
     text-decoration: none;
   }
 }
@@ -208,6 +208,12 @@ footer{
 // フォームサイズを自由に変更できないように変更
 #message_content {
   resize: none;
+}
+
+.message{
+  margin-bottom: 10px;
+  background-color: #FFE50022;
+  border-radius: 10px;
 }
 
 // DM
