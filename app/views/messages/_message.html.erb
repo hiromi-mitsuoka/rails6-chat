@@ -20,7 +20,7 @@
   
   <!--ActionCableが動作しなくなった原因はここ-->
   <!--current_user.idがダメだったらしい-->
-  <%# if message.user_id == current_user.id %>
+  <%# if message.user_id == current_user.id%>
     <%#= link_to "投稿を削除", message, method: :delete, data: { confirm: "投稿を削除しますか？" } %>
   <%# end %>
   
