@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
   end
   
   def destroy
+    @message_user = current_user
     @message = Message.find(params[:id])
     @message.destroy
     redirect_to rooms_show_path

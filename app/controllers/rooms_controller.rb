@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
     # message投稿時に利用
     @message = current_user.messages.build
     
-    @messenger = current_user
+    @message_user = current_user
   end
   
   def show_additionally

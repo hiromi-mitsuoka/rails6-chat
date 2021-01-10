@@ -6,7 +6,7 @@ class DmMessagesController < ApplicationController
       @dm_message = DmMessage.create!(dm_message_params)
       # templateはdm_messsage.rbで定義
       ActionCable.server.broadcast 'dm_room_channel_#{dm_message.dm_room_id}', dm_message: @dm_message.template
-      redirect_to "/dm_rooms/#{ @dm_message.dm_room_id }"
+      # redirect_to "/dm_rooms/#{ @dm_message.dm_room_id }"
     else
       redirect_back(fallback_location: root_path)
     end
