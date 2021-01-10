@@ -4,14 +4,16 @@
   <h3><%= link_to "全体トークルームへ", rooms_show_path %></h2>
   <ul>
     <% @users.each do |user| %>
-      <li>
-        <% if user.avatar? %>
-          <%= image_tag user.avatar.url, class: "avatar" %>
-        <% else %>
-          <%= image_tag "avatar.png", class: "avatar" %>
-        <% end %>
-        <%= link_to user.username + "にメッセージを送る", user_path(user) %>
-      </li>
+      <% unless user.id == current_user.id %>
+        <li>
+          <% if user.avatar? %>
+            <%= image_tag user.avatar.url, class: "avatar" %>
+          <% else %>
+            <%= image_tag "avatar.png", class: "avatar" %>
+          <% end %>
+          <%= link_to user.username + "にメッセージを送る", user_path(user) %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% else %>

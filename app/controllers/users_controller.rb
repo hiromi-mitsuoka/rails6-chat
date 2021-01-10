@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @currentUserDmEntry = DmEntry.where(user_id: current_user.id)
     @userDmEntry = DmEntry.where(user_id: @user.id)
     
+    # 本人のページはfavoriteしたメッセージ表示
+    @messages = @user.messages
+    @favorite_messages = @user.favorite_messages
+    
     unless @user.id == current_user.id
       @currentUserDmEntry.each do |cu|
         @userDmEntry.each do |u|

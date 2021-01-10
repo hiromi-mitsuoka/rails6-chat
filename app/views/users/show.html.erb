@@ -11,7 +11,25 @@
   </h2>
 
 <% if @user.id == current_user.id %>
-  本人です
+  <h2><span>全体トークで自分が送信したメッセージ</span></h2>
+  <% @messages.each do |message| %>
+    <hr>
+    <p><%= l message.created_at, format: "%-d日(%a) %H:%M" %> <%= simple_format(h message.content) %></p>
+  <% end %>
+  <h2><span>いいねしたメッセージ</span></h2>
+  <% @favorite_messages.each do |message| %>
+    <hr>
+    <p>
+      <% if message.user.avatar? %>
+        <%= image_tag message.user.avatar.url, class: "avatar" %>
+      <% else %>
+        <%= image_tag "avatar.png", class: "avatar" %>
+      <% end %>
+      : <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %><br />
+      <%= simple_format(h message.content) %>
+    </p>
+    
+  <% end %>
 <% else %>
   <% if @isDmRoom == true %>
     <!--<p><a href="/dm_rooms/<%#= @dmRoomId %>">チャット画面へ</a></p>-->
@@ -25,8 +43,6 @@
     <% end %>
   <% end %>
 <% end %>
-
-<%= link_to "ユーザー一覧に戻る", users_path %>
 
 </div>
 </div>
