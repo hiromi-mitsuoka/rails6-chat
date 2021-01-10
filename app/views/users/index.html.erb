@@ -1,7 +1,7 @@
 <div class="display-box">
 <div>
 <% if user_signed_in? %>
-  <h3><%= link_to "全体トークルームへ", rooms_show_path %></h2>
+  <h2><%= link_to "全体トークルームへ", rooms_show_path %></h2>
   <ul>
     <% @users.each do |user| %>
       <% unless user.id == current_user.id %>

@@ -1,35 +1,46 @@
 <div class="display-box">
 <div>
 
-<h2>
+<h2 class="m-bottom">
   <% if @user.avatar? %>
     <%= image_tag @user.avatar.url, class: "avatar" %>
   <% else %>
     <%= image_tag "avatar.png", class: "avatar" %>
   <% end %>
   <%= @user.username %>
-  </h2>
+</h2>
 
 <% if @user.id == current_user.id %>
-  <h2><span>全体トークで自分が送信したメッセージ</span></h2>
-  <% @messages.each do |message| %>
-    <hr>
-    <p><%= l message.created_at, format: "%-d日(%a) %H:%M" %> <%= simple_format(h message.content) %></p>
-  <% end %>
-  <h2><span>いいねしたメッセージ</span></h2>
-  <% @favorite_messages.each do |message| %>
-    <hr>
-    <p>
-      <% if message.user.avatar? %>
-        <%= image_tag message.user.avatar.url, class: "avatar" %>
-      <% else %>
-        <%= image_tag "avatar.png", class: "avatar" %>
+  <div class="m-bottom">
+    <h2><span>全体トークで自分が送信したメッセージ</span></h2>
+    <% if @messages.present? %>
+      <% @messages.each do |message| %>
+        <hr>
+        <p><%= l message.created_at, format: "%-d日(%a) %H:%M" %> <%= simple_format(h message.content) %></p>
       <% end %>
-      : <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %><br />
-      <%= simple_format(h message.content) %>
-    </p>
-    
+    <% else %>
+      <p><span>まだメッセージがありません</span></p>
   <% end %>
+  </div>
+  <div class="m-bottom">
+  <h2><span>いいねしたメッセージ</span></h2>
+    <% if @favorite_messages.present? %>
+      <% @favorite_messages.each do |message| %>
+        <hr>
+        <p>
+          <% if message.user.avatar? %>
+            <%= image_tag message.user.avatar.url, class: "avatar" %>
+          <% else %>
+            <%= image_tag "avatar.png", class: "avatar" %>
+          <% end %>
+          : <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %><br />
+          <%= simple_format(h message.content) %>
+        </p>
+      <% end %>
+    <% else %>
+      <p><span>まだいいねしていません</span></p>
+    <% end %>
+  </div>
 <% else %>
   <% if @isDmRoom == true %>
     <!--<p><a href="/dm_rooms/<%#= @dmRoomId %>">チャット画面へ</a></p>-->
