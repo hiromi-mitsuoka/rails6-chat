@@ -21,6 +21,7 @@ document.addEventListener('turbolinks:load', () =>{
   
     received(data) {
       dmMessageContainer.insertAdjacentHTML('beforeend', data['dm_message'])
+      scrollToBottom()
     }
   });
   
@@ -35,7 +36,7 @@ document.addEventListener('turbolinks:load', () =>{
     window.scroll(0, documentElement.scrollHeight)
   }
   
-  scrollToBottom()
+  
   
   console.log("test DM_room_channel")
   
@@ -131,5 +132,6 @@ document.addEventListener('turbolinks:load', () =>{
     }
   }, { passive: true });
   
+  scrollToBottom()
 })
 

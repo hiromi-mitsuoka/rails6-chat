@@ -22,6 +22,7 @@ document.addEventListener('turbolinks:load', () => {
     received(data){
       // サーバー側から受け取ったHTMLを最後に加える
       messageContainer.insertAdjacentHTML('beforeend', data['message'])
+      scrollToBottom()
     }
     
   })
@@ -36,9 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   window.scrollToBottom = () => {
     window.scroll(0, documentElement.scrollHeight)
   }
-  
-  // 最初にページ一番下に移動
-  scrollToBottom()
   
   
   
@@ -135,6 +133,9 @@ document.addEventListener('turbolinks:load', () => {
       })
     }
   }, { passive: true });
+  
+  // 最初にページ一番下に移動
+  scrollToBottom()
 })
 
 
