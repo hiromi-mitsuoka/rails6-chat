@@ -1,6 +1,6 @@
 class DmRoomChannel < ApplicationCable::Channel
   def subscribed
-    5.times { puts "*****DMChannel******" }
+    puts "*****DMChannel******"
     stream_from "dm_room_channel_#{params['room']}"
   end
 

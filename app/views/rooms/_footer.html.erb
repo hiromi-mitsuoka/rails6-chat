@@ -1,17 +1,17 @@
 <footer id="footer">
   <div class="footer-center">
-  <!--Ajaxを利用するため、local: trueは無し-->
-  <%= form_with model: @message do |f| %>
-    <div class="form-group">
-      <!--自動でmessage_contentというidがつく-->
-      <%= f.text_area :content, class: "form-control", rows: "1", maxlength: "500" %>
-    </div>
-    <div class="form-group">
-      <%= f.file_field :images, class: "form-control", id: "images_content", multiple: true %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "送信", class: "btn btn-primary btn-block disabled", id: "message-button" %>
-    </div>
-  <% end %>
+    <!--Ajaxを利用するため、local: trueは無し-->
+    <%= form_with model: @message do |f| %>
+      <div class="form-group">
+        <!--自動でmessage_contentというidがつく-->
+        <%= f.text_area :content, class: "form-control", rows: "1", maxlength: "500" %>
+      </div>
+      <div class="form-group">
+        <%= f.file_field :images, class: "form-control", id: "images_content", multiple: true %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "送信", class: "btn btn-block disabled", id: "message-button" %>
+      </div>
+    <% end %>
   </div>
 </footer>

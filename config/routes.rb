@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # 全体トークの無限スクロール対応用のルーティング
+  get '/dm_show_additionally', to: 'dm_rooms#show_additionally'
   get '/show_additionally', to: 'rooms#show_additionally'
   mount ActionCable.server => '/cable'
   resources :messages, only: [:create, :destroy]

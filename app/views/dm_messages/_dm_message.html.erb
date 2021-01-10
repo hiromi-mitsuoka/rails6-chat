@@ -1,4 +1,4 @@
-<div class="message" id="dm_messages dm_message-<%= dm_message.id %>" data-room_id="<%= @dm_room_id %>">
+<div class="message" id="dm_message-<%= dm_message.id %>">
   <p>
     <% if dm_message.user.avatar? %>
       <%= image_tag dm_message.user.avatar.url, class: "avatar" %>
@@ -7,10 +7,10 @@
     <% end %>
     <%= dm_message.user.username %>: <%= l dm_message.created_at, format: "%-d日(%a) %H:%M" %>
   </p>
-  <%# if dm_message.images? %>
-    <%# dm_message.images.each do |image| %>
-      <%#= image_tag image.url %>
-    <%# end %>
-  <%# end %>  
+  <% if dm_message.images? %>
+    <% dm_message.images.each do |image| %>
+      <%= image_tag image.url %>
+    <% end %>
+  <% end %>  
   <%= simple_format(h dm_message.content) %>
 </div>

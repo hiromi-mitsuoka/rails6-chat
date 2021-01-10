@@ -1,5 +1,5 @@
-<div class="display-box">
-<div>
+<div class="display-box p-top p-bottom">
+<div class="h100">
 
 <h2 class="m-bottom">
   <% if @user.avatar? %>
@@ -22,7 +22,7 @@
       <p><span>まだメッセージがありません</span></p>
   <% end %>
   </div>
-  <div class="m-bottom">
+  <div class="p-bottom">
   <h2><span>いいねしたメッセージ</span></h2>
     <% if @favorite_messages.present? %>
       <% @favorite_messages.each do |message| %>
@@ -44,13 +44,13 @@
 <% else %>
   <% if @isDmRoom == true %>
     <!--<p><a href="/dm_rooms/<%#= @dmRoomId %>">チャット画面へ</a></p>-->
-    <%= link_to "チャット画面へ", dm_room_path(@dmRoomId) %>
+    <%= link_to "チャット画面へ", dm_room_path(@dmRoomId) , class: "btn" %>
   <% else %>
     <%= form_with model: @dmRoom do |f| %>
       <%= fields_for @dmEntry do |e| %>
         <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>
-      <%= f.submit "チャットを始める" %>
+      <%= f.submit "チャットを始める", class: "btn" %>
     <% end %>
   <% end %>
 <% end %>

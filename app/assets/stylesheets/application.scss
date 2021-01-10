@@ -60,13 +60,17 @@ body{
   align-items: center;
 }
 
+.h100{
+  height: 100%;
+}
+
 // =====sidebar=====
 .sidebar{
   position: fixed;
   background-color: $yellow;
   width: 25%;
   height: 100%;
-  padding: 3rem 4rem;
+  padding: 3rem 2rem;
 }
 
 li {
@@ -150,6 +154,7 @@ $form-height: 40px;
   color: white;
   &:hover{
     color: white;
+    background-color: $pink;
   }
 }
 
@@ -166,40 +171,42 @@ $form-height: 40px;
 
 // =====users======
 
-
-
+// avatar
+.avatar{
+  border-radius: 50%;
+  width: 40px;
+  margin-right: 10px;
+}
 
 
 // =====rooms======
-.messages-room{
-  max-width: $w768;
-  margin: 0 auto;
-  position: relative;
-}
 
 #message-container {
   max-width: $w768;
   margin: 0 auto;
-  padding: 1rem 1rem 8rem 1rem;
+  padding: 1rem 0 10rem;
   background-color: $bg-white;
+  position: relative;
+  .fixed{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 // メッセージ投稿フォーム
 footer{
-    width: 100%;
-    max-width: 700px;
-    position: fixed;
-    bottom: 0;
-    background-color: $bg-white;
+    max-width: $w768;
+    background-color: none;
     .footer-center{
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto;
       
     }
 }
 
 // ボタン無効化時のスタイル
-.btn-primary.disabled {
+.btn.disabled {
     background-color: #6c757d;
     border-color: #6c757d;
     cursor: auto;
@@ -211,27 +218,28 @@ footer{
 }
 
 .message{
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: $w768;
+  margin-bottom: 30px;
   background-color: #FFE50022;
   border-radius: 10px;
 }
 
 // DM
-// メッセージ一覧
 #dm_message-container {
   max-width: $w768;
   margin: 0 auto;
-  padding: 1rem 1rem 8rem 1rem;
+  padding: 1rem 0 6rem;
+  background-color: $bg-white;
+  position: relative;
+  .fixed{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 // フォームサイズを自由に変更できないように変更
 #dm_message_content {
   resize: none;
-}
-
-// avatar
-.avatar{
-  border-radius: 50%;
-  width: 40px;
-  margin-right: 10px;
 }
