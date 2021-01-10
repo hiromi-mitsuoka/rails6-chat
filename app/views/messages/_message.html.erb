@@ -14,6 +14,10 @@
   <% end %>
   <%= simple_format(h message.content) %>
   
+  <div id="favorites_buttons_<%= message.id %>">
+    <%= render partial: 'favorites/favorite', locals: { message: message } %>
+  </div>
+  
   <!--ActionCableが動作しなくなった原因はここ-->
   <!--current_user.idがダメだったらしい-->
   <%# if message.user_id == current_user.id %>

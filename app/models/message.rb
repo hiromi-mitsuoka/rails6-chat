@@ -13,6 +13,7 @@ class Message < ApplicationRecord
   # after_create_commit { MessageBroadcastJob.perform_later self }
   
   belongs_to :user
+  has_many :favorites
   
   def template
     # ApplicationController.renderer.render partial: "messages/message",
@@ -24,5 +25,10 @@ class Message < ApplicationRecord
     # ApplicationController.render_with_signed_in_user(user, 'posts/post', locals: { post: @post })
     ApplicationController.render_with_signed_in_user(@message_user, partial: "messages/message",
                                           locals: { message: self })
+  end
+  
+  # いいねしてるかどうかのメソッド
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 end

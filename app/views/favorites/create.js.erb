@@ -1,0 +1,2 @@
+<!--Ajaxで部分プレートを更新する-->
+$('#favorites_buttons_<%= @message.id %>').html("<%= j(render partial: "favorites/favorite", locals: { message: @message }) %>");

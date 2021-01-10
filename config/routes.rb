@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :show]
   resources :dm_messages, :only => [:create]
   resources :dm_rooms, :only => [:create, :show]
+  resources :messages do
+    # message_id取得を楽にするためにネスト
+    resource :favorites, only: [:create, :destroy]
+  end
 end

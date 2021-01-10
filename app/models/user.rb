@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :dm_entries, dependent: :destroy
   has_many :dm_messages, dependent: :destroy
   has_many :dm_rooms, through: :dm_entries
+  has_many :favorites
+  has_many :favorite_messages, through: :favorites, source: :message
   
   mount_uploader :avatar, AvatarUploader
 end
