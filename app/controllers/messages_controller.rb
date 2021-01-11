@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
     # ActionCable動かなくなったから一旦これで
     # template : message.rbに記述
     ActionCable.server.broadcast "room_channel", message: @message.template
-    # redirect_to rooms_show_path
+    # current_userを適応させるため
+    redirect_to rooms_show_path
   end
   
   def destroy

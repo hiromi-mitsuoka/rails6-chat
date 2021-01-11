@@ -1,4 +1,10 @@
-<div class="message" id="message-<%= message.id %>">
+<div class="
+  <% if message.user == current_user %>
+    messages current_user
+  <% else %>
+    messages
+  <% end %>
+" id="message-<%= message.id %>">
   <p>
     <% if message.user.avatar? %>
       <%= image_tag message.user.avatar.url, class: "avatar" %>

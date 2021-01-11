@@ -225,6 +225,10 @@ footer{
   border-radius: 10px;
 }
 
+.current_user p{
+  color: $pink;
+}
+
 // DM
 #dm_message-container {
   max-width: $w768;
