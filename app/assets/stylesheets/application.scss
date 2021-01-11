@@ -225,7 +225,7 @@ footer{
   border-radius: 10px;
 }
 
-.current_user p{
+.current_user{
   color: $pink;
 }
 
@@ -233,7 +233,7 @@ footer{
 #dm_message-container {
   max-width: $w768;
   margin: 0 auto;
-  padding: 1rem 0 6rem;
+  padding: 1rem 0 0;
   background-color: $bg-white;
   position: relative;
   .fixed{

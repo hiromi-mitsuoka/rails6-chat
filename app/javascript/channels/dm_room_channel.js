@@ -4,13 +4,14 @@ import consumer from "./consumer"
 document.addEventListener('turbolinks:load', () =>{
   // js.erb内で使用する変数を定義
   window.dmMessageContainer = document.getElementById('dm_message-container')
+  window.dmMessages = document.getElementById('dm_messages')
   
   // 他のページで動作しないよう制限
   if (dmMessageContainer === null){
     return
   }
   
-  consumer.subscriptions.create({channel: "DmRoomChannel", room: $("#dm_message-container").data("dm_room_id")}, {
+  consumer.subscriptions.create({channel: "DmRoomChannel", room: $('#dm_messages').data('room_id')}, {
     connected() {
       // Called when the subscription is ready for use on the server
     },
@@ -20,7 +21,10 @@ document.addEventListener('turbolinks:load', () =>{
     },
   
     received(data) {
+      console.log("dm_received******");
       dmMessageContainer.insertAdjacentHTML('beforeend', data['dm_message'])
+      // もしかしたらこっち
+      // dmMessages.insertAdjacentHTML('beforeend', data['dm_message'])
       scrollToBottom()
     }
   });

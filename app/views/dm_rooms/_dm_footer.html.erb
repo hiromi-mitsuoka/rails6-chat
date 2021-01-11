@@ -4,8 +4,7 @@
   <%= form_with model: @dm_message do |f| %>
   
     <div class="form-group">
-      <!--自動でmessage_contentというidがつく-->
-      <%= f.text_area :content, class: "form-control", rows: "1", maxlength: "500" %>
+      <%= f.text_area :content, class: "form-control", id: "dm_message_content", rows: "1", maxlength: "500" %>
     </div>
     
     <div class="form-group">

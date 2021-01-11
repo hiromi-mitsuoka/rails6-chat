@@ -1,4 +1,5 @@
-<div class="message" id="dm_message-<%= dm_message.id %>">
+<div class="message" id="dm_messages" data-room_id="<%= dm_message.dm_room_id %>">
+<!--<div class="message" id="dm_messages" data-room_id="<%#= dm_message.dm_room_id %>">-->
   <p>
     <% if dm_message.user.avatar? %>
       <%= image_tag dm_message.user.avatar.url, class: "avatar" %>

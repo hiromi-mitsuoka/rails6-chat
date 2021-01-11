@@ -1,5 +1,5 @@
 var messageHeight = dmMessageContainer.scrollHeight
-messageContainer.insertAdjacentHTML('afterbegin', "<%= j(render @dm_messages) %>")
+dmMessageContainer.insertAdjacentHTML('afterbegin', "<%= j(render @dm_messages) %>")
 var newMessageHeight = dmMessageContainer.scrollHeight
 window.scrollBy(0, newMessageHeight - messageHeight)
 <!--メッセージが存在する時だけさらに読み込み可能とする-->

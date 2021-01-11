@@ -1,7 +1,7 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     # test
-    # 5.times { puts "******Channel******" }
+    5.times { puts "******Channel******" }
     
     # 配信するroom名を決定
     stream_from "room_channel"

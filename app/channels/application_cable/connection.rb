@@ -1,7 +1,6 @@
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     # cookieの情報からcurrent_userを作成
-    
     identified_by :current_user
 
     def connect
