@@ -31,4 +31,9 @@ class Message < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  
+  # 本人かどうか
+  def current_user?(current_user)
+    user_id == current_user.id
+  end
 end
