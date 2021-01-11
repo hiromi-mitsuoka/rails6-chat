@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "users#index"
   resources :users, :only => [:index, :show]
-  resources :dm_messages, :only => [:create]
+  resources :dm_messages, :only => [:create, :destroy]
   resources :dm_rooms, :only => [:create, :show]
   resources :messages do
     # message_id取得を楽にするためにネスト

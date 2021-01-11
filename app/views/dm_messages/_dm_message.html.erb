@@ -13,4 +13,9 @@
     <% end %>
   <% end %>  
   <%= simple_format(h dm_message.content) %>
+  <div>
+    <% if dm_message.user == current_user %>
+      <%= link_to "投稿を削除", dm_message, method: :delete, data: { confirm: "投稿を削除しますか？" } %>
+    <% end %>
+  </div>
 </div>

@@ -33,7 +33,7 @@ class Message < ApplicationRecord
   end
   
   # 本人かどうか
-  def current_user?(current_user)
-    user_id == current_user.id
-  end
+  # def current_user?(current_user)
+  #   user_id == current_user.id
+  # end
 end
