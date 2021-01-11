@@ -230,10 +230,10 @@ footer{
 }
 
 // DM
-#dm_message-container {
+#dm_room-container {
   max-width: $w768;
-  margin: 0 auto;
-  padding: 1rem 0 0;
+  margin: 0 auto 6rem;
+  padding: 1rem 0 10rem;
   background-color: $bg-white;
   position: relative;
   .fixed{
@@ -241,6 +241,10 @@ footer{
     bottom: 0;
     width: 100%;
   }
+}
+
+#dm_message-container{
+  
 }
 
 // フォームサイズを自由に変更できないように変更

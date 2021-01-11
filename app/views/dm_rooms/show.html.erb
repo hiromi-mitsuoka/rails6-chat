@@ -1,4 +1,4 @@
-<div id="dm_message-container">
+<div id="dm_room-container">
   <% @dm_entries.each do |e| %>
     <h3 class="text-center">
       <strong>
@@ -25,7 +25,6 @@
       <h3 class="text-center">メッセージはまだありません</h3>
     <% end %>
   <!--</div>-->
-    <div style="padding-top : 15rem"></div>
   
   <div class="fixed">
     <%= render "dm_footer" %>
