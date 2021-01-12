@@ -1,15 +1,16 @@
 <footer id="footer">
   <div class="footer-center">
     <!--Ajaxを利用するため、local: trueは無し-->
-    <%= form_with model: @message do |f| %>
-      <div class="form-group">
+    <%= form_with model: @message, class: "footer-flex" do |f| %>
+      <div class="form-width">
         <!--自動でmessage_contentというidがつく-->
-        <%= f.text_area :content, class: "form-control", rows: "1", maxlength: "500" %>
+        <%= f.text_area :content, class: "form-control form-radius", rows: "1", maxlength: "500" %>
       </div>
-      <div class="form-group">
-        <%= f.file_field :images, class: "form-control", id: "images_content", multiple: true %>
-      </div>
-      <div class="form-group">
+      <label class="file-width image-label  text-center">
+        <i class="fas fa-images"></i>
+        <%= f.file_field :images, class: "form-control images-file", id: "images_content", multiple: true %>
+      </label>
+      <div class="submit-width">
         <%= f.submit "送信", class: "btn btn-block disabled", id: "message-button" %>
       </div>
     <% end %>

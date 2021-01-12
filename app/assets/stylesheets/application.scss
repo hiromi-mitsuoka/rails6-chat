@@ -16,6 +16,13 @@
  
 // bootstrap
 @import "bootstrap/scss/bootstrap";
+// fontawesome
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
 
 $yellow : #FFE500;
 $pink: #C14F7E;
@@ -194,17 +201,6 @@ $form-height: 40px;
   }
 }
 
-// メッセージ投稿フォーム
-footer{
-    max-width: $w768;
-    background-color: none;
-    .footer-center{
-      max-width: 600px;
-      margin: 0 auto;
-      
-    }
-}
-
 // ボタン無効化時のスタイル
 .btn.disabled {
     background-color: #6c757d;
@@ -250,4 +246,51 @@ footer{
 // フォームサイズを自由に変更できないように変更
 #dm_message_content {
   resize: none;
+}
+
+// =====footer=====
+// メッセージ投稿フォーム
+footer{
+    max-width: $w768;
+    background-color: none;
+    padding-bottom: 50px;
+    .footer-center{
+      max-width: 600px;
+      margin: 0 auto;
+    }
+}
+
+.footer-flex{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  .form-width{
+    flex: auto;
+    .form-radius{
+      min-height: $form-height;
+      border-radius: $form-height / 2;
+      outline: none;
+      border: $black 0.5px solid;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  .file-width{
+    width: 80px;
+    height: 40px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fa-images{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .submit-width{
+    width: 80px;
+  }
+  .images-file{
+    display: none;
+  }
 }

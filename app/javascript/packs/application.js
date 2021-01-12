@@ -14,6 +14,9 @@ require("bootstrap/dist/js/bootstrap")
 // jquery
 require('jquery')
 
+// fontawesome
+import '@fortawesome/fontawesome-free/js/all';
+
 // import 'bootstrap'
 
 
