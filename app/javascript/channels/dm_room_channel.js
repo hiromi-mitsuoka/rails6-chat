@@ -21,11 +21,15 @@ document.addEventListener('turbolinks:load', () =>{
     },
   
     received(data) {
-      console.log("dm_received******");
-      dmMessageContainer.insertAdjacentHTML('beforeend', data['dm_message'])
-      // もしかしたらこっち
-      // dmMessages.insertAdjacentHTML('beforeend', data['dm_message'])
-      scrollToBottom()
+      // console.log("data_dm_user_id = " + data['dm_user']['id']);
+      // 送信者以外はbroadcastでレンダリング 、送信者はcurrent_userを使うためにredirectでレンダリング 
+      if(data['dm_user']['id'] != dm_current_user_num){
+        dmMessageContainer.insertAdjacentHTML('beforeend', data['dm_message'])
+        scrollToBottom()
+        // console.log("Bloadcast!!!")
+      }else{
+        return
+      }
     }
   });
   
@@ -35,6 +39,10 @@ document.addEventListener('turbolinks:load', () =>{
   // js.erb内で使用する変数定義
   window.dmMessageContent = document.getElementById("dm_message_content")
   window.dmImagesContent = document.getElementById("dm_images_content")
+  
+  // 送信者かどうかのチェックのために定義
+  var dm_current_user_num = $('#dm_current_user_num').val();
+  // console.log("current_user = " + current_user_num);
   
   window.scrollToBottom = () => {
     window.scroll(0, documentElement.scrollHeight)
