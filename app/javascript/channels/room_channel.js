@@ -20,9 +20,15 @@ document.addEventListener('turbolinks:load', () => {
     },
     
     received(data){
-      // サーバー側から受け取ったHTMLを最後に加える
-      messageContainer.insertAdjacentHTML('beforeend', data['message'])
-      scrollToBottom()
+      // console.log("data_user_id = " + data['user']['id']);
+      // 送信者以外はbroadcastでレンダリング 、送信者はcurrent_userを使うためにredirectでレンダリング 
+      if(data['user']['id'] != current_user_num){
+        messageContainer.insertAdjacentHTML('beforeend', data['message'])
+        scrollToBottom()
+        // console.log("Bloadcast!!!")
+      }else{
+        return
+      }
     }
     
   })
@@ -33,6 +39,10 @@ document.addEventListener('turbolinks:load', () => {
   // js.erb内でも使用できるように変数を決定
   window.messageContent = document.getElementById("message_content")
   window.imagesContent = document.getElementById("images_content")
+
+  // 送信者かどうかのチェックのために定義
+  var current_user_num = $('#current_user_num').val();
+  // console.log("current_user = " + current_user_num);
   
   window.scrollToBottom = () => {
     window.scroll(0, documentElement.scrollHeight)

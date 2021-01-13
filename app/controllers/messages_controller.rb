@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
+  after_action :bloadcast, only: :create
   
   def create
     @message = current_user.messages.create!(message_params)
@@ -8,7 +9,8 @@ class MessagesController < ApplicationController
     # current_userを適応させるため
     redirect_to rooms_show_path
     # template : message.rbに記述
-    ActionCable.server.broadcast "room_channel", message: @message.template
+    # ActionCable.server.broadcast "room_channel",
+    #       message: @message.template, user: current_user
   end
   
   def destroy
@@ -22,6 +24,11 @@ class MessagesController < ApplicationController
   
     def message_params
       params.require(:message).permit(:content, { images: [] })
+    end
+    
+    def bloadcast
+      ActionCable.server.broadcast "room_channel",
+          message: @message.template, user: current_user
     end
     
     
