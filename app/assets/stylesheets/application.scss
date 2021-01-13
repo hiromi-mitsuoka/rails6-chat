@@ -198,6 +198,8 @@ $form-height: 40px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    max-width: $w768;
+    
   }
 }
 
@@ -252,6 +254,7 @@ $form-height: 40px;
 // メッセージ投稿フォーム
 footer{
     max-width: $w768;
+    width: 100%;
     background-color: none;
     padding-bottom: 50px;
     .footer-center{

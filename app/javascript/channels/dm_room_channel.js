@@ -4,10 +4,11 @@ import consumer from "./consumer"
 document.addEventListener('turbolinks:load', () =>{
   // js.erb内で使用する変数を定義
   window.dmMessageContainer = document.getElementById('dm_message-container')
+  window.dmMessageContainerNotMessage = document.getElementById('no_message_but_move_js')
   window.dmMessages = document.getElementById('dm_messages')
   
   // 他のページで動作しないよう制限
-  if (dmMessageContainer === null){
+  if (dmMessageContainer === null && dmMessageContainerNotMessage === null){
     return
   }
   
