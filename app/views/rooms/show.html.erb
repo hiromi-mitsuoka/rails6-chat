@@ -4,24 +4,10 @@
   <!--eachで一つずつ呼び出すのではなく、collectionを設定し、@messagesの中身を1つずつ取り出す-->
 
 
-<div id="container">
-  <video id="video" width="400" height="300" autoplay></video>
-  <canvas id="canvas" width="400" height="300"></canvas>
-</div>
-<div id="dat"></div>
+
   <input value="<%= current_user.id %>" id="current_user_num" type="hidden">
   <div class="fixed">
     <%= render 'footer' %>
   </div>
 </div>
 
-
-<%#= javascript_pack_tag 'custom/application' %>
-<!--画像がセットされたらpink-->
-<%#= javascript_pack_tag 'custom/image_file' %>
-
-<%#= javascript_pack_tag 'custom/clmtrackr' %>
-<%#= javascript_pack_tag 'custom/model_pca_20_svm_emotion' %>
-<%#= javascript_pack_tag 'custom/emotionClassifier' %>
-<%#= javascript_pack_tag 'custom/emotionModel' %>
-<%#= javascript_pack_tag 'custom/face_tracker' %>
