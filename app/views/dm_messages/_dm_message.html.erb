@@ -1,22 +1,35 @@
-<div class="message" id="dm_messages" data-room_id="<%= dm_message.dm_room_id %>">
-<!--<div class="message" id="dm_messages" data-room_id="<%#= dm_message.dm_room_id %>">-->
+<div class="
+  <% if dm_message.user == current_user %>
+    dm_message dm_current_user
+  <% else %>
+    dm_message
+  <% end %>
+" id="dm_messages" data-room_id="<%= dm_message.dm_room_id %>">
+
   <p>
     <% if dm_message.user.avatar? %>
       <%= image_tag dm_message.user.avatar.url, class: "avatar" %>
     <% else %>
       <%= image_tag "avatar.png", class: "avatar" %>
     <% end %>
-    <%= dm_message.user.username %>: <%= l dm_message.created_at, format: "%-d日(%a) %H:%M" %>
   </p>
-  <% if dm_message.images? %>
-    <% dm_message.images.each do |image| %>
-      <%= image_tag image.url %>
-    <% end %>
-  <% end %>  
-  <%= simple_format(h dm_message.content) %>
-  <div>
-    <% if dm_message.user == current_user %>
-      <%= link_to "投稿を削除", dm_message, method: :delete, data: { confirm: "投稿を削除しますか？" } %>
-    <% end %>
+  <div style="margin: 0 10px">
+    <div class="dm_message-box">
+      <p class="messenger"><%= dm_message.user.username %></p>
+      <% if dm_message.images? %>
+        <% dm_message.images.each do |image| %>
+          <%= image_tag image.url, class: "image" %>
+        <% end %>
+      <% end %>  
+      <p><%= simple_format(h dm_message.content) %></p>
+    </div>
+    <div>
+      <p class="date"><%= l dm_message.created_at, format: "%-d日(%a) %H:%M" %></p>
+      <% if dm_message.user == current_user %>
+        <%= link_to  dm_message, method: :delete, data: { confirm: "投稿を削除しますか？" }, class: "delete_message" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
