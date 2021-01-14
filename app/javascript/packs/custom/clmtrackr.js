@@ -14407,7 +14407,7 @@ var clm = {
 		 */
 		 
 		 
-		var patchType = require('./emotionClassifier');
+// 		var patchType = require('./emotionClassifier');
 // 		let emotionClassifier = require('./emotionClassifier');
 		 
 		this.init = function(pdmmodel) {
@@ -14417,9 +14417,19 @@ var clm = {
 			model = pdmmodel;
 
 			// load from model
-			patchType = model.patchModel.patchType;
-			numPatches = model.patchModel.numPatches;
-			patchSize = model.patchModel.patchSize[0];
+			let patchType
+			let numPatches
+			let patchSize
+			
+			if (patchType){
+			    patchType = model.patchModel.patchType;
+			}
+			if (numPatches){
+			    numPatches = model.patchModel.numPatches;
+			}
+			if (patchSize){
+			    patchSize = model.patchModel.patchSize[0];
+			}
 			if (patchType == 'MOSSE') {
 				searchWindow = patchSize;
 			} else {
