@@ -53,6 +53,10 @@ document.addEventListener('turbolinks:load', () => {
   // フォームが入力された時、空欄でなければ有効化、空欄なら無効化
   const messageButton = document.getElementById("message-button")
   
+  // 画像がセットされたらpink
+  // $pink: #C14F7E;
+  var changeColor = document.getElementsByClassName("change-color");
+  
   // disabledのtoggle関数
   const button_activation = () => {
     if (messageContent.value === "" && imagesContent.value === ""){
@@ -70,11 +74,19 @@ document.addEventListener('turbolinks:load', () => {
   
   // 画像フォルダにセット時の動作
   imagesContent.addEventListener('input', () => {
+    // 画像がセットされたらpink
+    if(imagesContent.value !== ""){
+      changeColor[0].style.color = "#C14F7E";
+    }else{
+      changeColor[0].style.color = "gray"
+    }
     button_activation()
   })
   
   // 送信ボタンを押した時に無効化
   messageButton.addEventListener('click', () => {
+    // ボタンの色変化に合わせてfileの色も変化
+    changeColor[0].style.color = "gray"
     messageButton.classList.add('disabled')
     changeLineCount(1)
   })

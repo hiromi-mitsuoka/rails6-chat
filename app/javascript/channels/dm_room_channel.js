@@ -56,6 +56,10 @@ document.addEventListener('turbolinks:load', () =>{
   // フォームが入力された時、空欄でなければ有効化、空欄なら無効化
   const dmMessageButton = document.getElementById("dm_message-button")
   
+  // 画像がセットされたらpink
+  // $pink: #C14F7E;
+  var changeColor = document.getElementsByClassName("change-color");
+  
   // disabledのtoggle関数
   const dm_button_activation = () => {
     if (dmMessageContent.value === "" && dmImagesContent.value === ""){
@@ -72,10 +76,18 @@ document.addEventListener('turbolinks:load', () =>{
   })
   
   dmImagesContent.addEventListener('input', () => {
+    // 画像がセットされたらpink
+    if(dmImagesContent.value !== ""){
+      changeColor[0].style.color = "#C14F7E";
+    }else{
+      changeColor[0].style.color = "gray"
+    }
     dm_button_activation()
   })
   
   dmMessageButton.addEventListener('click', () => {
+    // ボタンの色変化に合わせてfileの色も変化
+    changeColor[0].style.color = "gray"
     dmMessageButton.classList.add('disabled')
     dmChangeLineCount(1)
   })

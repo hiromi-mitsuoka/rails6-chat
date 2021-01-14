@@ -161,6 +161,7 @@ $form-height: 40px;
   border: $black 0.5px solid;
   background-color: $pink;
   color: white;
+  transition: 1.0s ;
   &:hover{
     color: white;
     background-color: $pink;
@@ -228,7 +229,7 @@ $form-height: 40px;
 
 // ボタン無効化時のスタイル
 .btn.disabled {
-    background-color: #6c757d;
+    background-color: gray;
     border-color: #6c757d;
     cursor: auto;
 }
@@ -410,3 +411,8 @@ footer{
   }
 }
 
+// js
+.change-color{
+  color: gray;
+  transition: 1.0s;
+}

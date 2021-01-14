@@ -17,9 +17,9 @@
   
   <div class="field">
     <!--<#%= f.label :avatar, "プロフィール画像"  %><br />-->
-    <label class="avatar-file-width avatar-image-label text-center circle-form">
+    <label class="avatar-file-width avatar-image-label text-center circle-form change-color">
     <i class="fas fa-images"></i>
-      <%= f.file_field :avatar, placeholder: "プロフィール画像", class: "circle-form avatar-images-file", autofocus: true, autocomplete: "avatar" %>
+      <%= f.file_field :avatar, placeholder: "プロフィール画像", class: "circle-form avatar-images-file  images-on", autofocus: true, autocomplete: "avatar" %>
     </label>
   </div>
 
@@ -44,3 +44,6 @@
 <%= render "devise/shared/links" %>
 </div>
 </div>
+
+<!--画像がセットされたらpink-->
+<%= javascript_pack_tag 'custom/image_file' %>
