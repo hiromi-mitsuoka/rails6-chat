@@ -11,22 +11,28 @@
     <% else %>
       <%= image_tag "avatar.png", class: "avatar" %>
     <% end %>
-    <%= message.id %>: <%= message.user.username %>: <%= l message.created_at, format: "%-d日(%a) %H:%M" %>
   </p>
-  <% if message.images? %>
-    <% message.images.each do |image| %>
-      <%= image_tag image.url %>
-    <% end %>
-  <% end %>
-  <%= simple_format(h message.content) %>
-  
-  <div>
-    <%= render partial: 'messages/delete', locals: { message: message } %>
-  </div>
-  
-  
-  <div id="favorites_buttons_<%= message.id %>">
-    <%= render partial: 'favorites/favorite', locals: { message: message } %>
+  <div class="bg-yellow">
+    <div class="message-box">
+      <p class="messenger"><%= message.user.username %></p>
+      <% if message.images? %>
+        <% message.images.each do |image| %>
+          <%= image_tag image.url, class: "image" %>
+        <% end %>
+      <% end %>
+      <p><%= simple_format(h message.content) %></p>
+    </div>
+    <div class="move-right">
+      <div>
+        <p class="date"><%= l message.created_at, format: "%-d日(%a) %H:%M" %></p>
+      </div>
+      <div id="favorites_buttons_<%= message.id %>">
+        <%= render partial: 'favorites/favorite', locals: { message: message } %>
+      </div>
+      <div>
+        <%= render partial: 'messages/delete', locals: { message: message } %>
+      </div>
+    </div>
   </div>
 
 </div>

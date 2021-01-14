@@ -1,10 +1,14 @@
 <% if user_signed_in? %>
   <% if message.favorited_by?(current_user) %>
-    <p><span>お気に入り解除:</span><%= link_to message.favorites.count, message_favorites_path(message.id), method: :delete, remote: true %></p>
+    <%= link_to  message_favorites_path(message.id), method: :delete, remote: true, class: "font-color"  do %>
+      <i class="fas fa-heart favo-on"></i>:<%= message.favorites.count %>
+    <% end %>
   <% else %>
-    <p><span>お気に入り登録:</span><%= link_to message.favorites.count, message_favorites_path(message.id), method: :post, remote: true %></p>
+    <%= link_to  message_favorites_path(message.id), method: :post, remote: true, class: "font-color"  do %>
+      <i class="fas fa-heart favo-off"></i>:<%= message.favorites.count %>
+    <% end %>
   <% end %>
 <% else %>
-  <p><span>お気に入り数</span><%= message.favorites.count %></p>
+  <p class="font-color">お気に入り数:<%= message.favorites.count %></p>
 <% end %>
 

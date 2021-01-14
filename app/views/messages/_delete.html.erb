@@ -2,5 +2,7 @@
   <!--current_user.idがダメだったらしい-->
     <%# if message.current_user?(message.user) %>
     <% if message.user == current_user %>
-      <%= link_to "投稿を削除", message, method: :delete, data: { confirm: "投稿を削除しますか？" } %>
+      <%= link_to message, method: :delete, data: { confirm: "投稿を削除しますか？" }, class: "delete_message" do %>
+        <i class="fas fa-trash-alt d-inline-b"></i>
+      <% end %>
     <% end %>
