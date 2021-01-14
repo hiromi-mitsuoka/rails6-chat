@@ -1,7 +1,7 @@
 // 画像がセットされたらpink
 // $pink: #C14F7E;
 
-// var imageFile = document.getElementsByClassName("images-on");
+var imageFile = document.getElementsByClassName("images-on");
 var changeColor = document.getElementsByClassName("change-color");
 
 $('.images-on').on('change', function () {
