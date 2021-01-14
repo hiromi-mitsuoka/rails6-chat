@@ -172,6 +172,7 @@ $form-height: 40px;
   color: $yellow;
   &:hover{
     color: $yellow;
+    background-color: #111;
   }
 }
 
@@ -183,6 +184,26 @@ $form-height: 40px;
   border-radius: 50%;
   width: 40px;
   margin-right: 10px;
+}
+
+// 新規・編集画面のavatarフォーム
+.avatar-file-width{
+  // width: 80px;
+  // height: 40px;
+  // margin-bottom: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  .fa-images{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .avatar-images-file{
+    display: none;
+  }
 }
 
 
@@ -344,6 +365,7 @@ footer{
     .fa-images{
       width: 30px;
       height: 30px;
+      cursor: pointer;
     }
   }
   .submit-width{
@@ -353,3 +375,4 @@ footer{
     display: none;
   }
 }
+

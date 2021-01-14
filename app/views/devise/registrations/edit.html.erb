@@ -17,9 +17,12 @@
   
   <div class="field">
     <!--<#%= f.label :avatar, "プロフィール画像"  %><br />-->
-    <%= f.file_field :avatar, placeholder: "プロフィール画像", class: "circle-form", autofocus: true, autocomplete: "avatar" %>
+    <label class="avatar-file-width avatar-image-label text-center circle-form">
+    <i class="fas fa-images"></i>
+      <%= f.file_field :avatar, placeholder: "プロフィール画像", class: "circle-form avatar-images-file", autofocus: true, autocomplete: "avatar" %>
+    </label>
   </div>
-
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>
