@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_042006) do
+ActiveRecord::Schema.define(version: 2021_01_10_022111) do
 
   create_table "dm_entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2021_01_10_042006) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.json "images"
     t.index ["dm_room_id"], name: "index_dm_messages_on_dm_room_id"
     t.index ["user_id"], name: "index_dm_messages_on_user_id"
   end
