@@ -11,12 +11,12 @@
   </div>
 
   <div class="field">
-    <!--<%#= f.label :email %><br />-->
+    <%= f.label :email, "「~~~@~~~.com」の形式で。適当なメアドで登録できるよ！", class: "pink" %><br />
     <%= f.email_field :email, placeholder: "メールアドレス", class: "circle-form", autofocus: true, autocomplete: "email" %>
   </div>
   
   <div class="field">
-    <!--<#%= f.label :avatar, "プロフィール画像"  %><br />-->
+    <%= f.label :avatar, "プロフィール画像"  %><br />
     <label class="avatar-file-width avatar-image-label text-center circle-form change-color">
     <i class="fas fa-images"></i>
       <%= f.file_field :avatar, placeholder: "プロフィール画像", class: "circle-form avatar-images-file images-on", autofocus: true, autocomplete: "avatar" %>
