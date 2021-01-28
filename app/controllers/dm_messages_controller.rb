@@ -12,7 +12,7 @@ class DmMessagesController < ApplicationController
       5.times { puts "#{@dm_room_id}" }
       # templateはdm_messsage.rbで定義
       redirect_to "/dm_rooms/#{ @dm_message.dm_room_id }"
-      # ActionCable.server.broadcast "dm_room_channel_#{@dm_room_id}", dm_message: @dm_message.template
+      # ActionCable.server.broadcast "dm_room_channel_#{@dm_room_id}", dm_message: @dm_message.template, dm_user: current_user
     else
       redirect_back(fallback_location: root_path)
     end
@@ -33,8 +33,9 @@ class DmMessagesController < ApplicationController
     end
     
     def dm_bloadcast
-      ActionCable.server.broadcast "dm_room_channel_#{@dm_room_id}", 
-            dm_message: @dm_message.template, dm_user: current_user
+      # ActionCable.server.broadcast "dm_room_channel_#{@dm_room_id}", 
+      #       dm_message: @dm_message.template, dm_user: current_user
+      ActionCable.server.broadcast "dm_room_channel_#{@dm_room_id}", dm_message: @dm_message.template, dm_user: current_user
     end
   
 end

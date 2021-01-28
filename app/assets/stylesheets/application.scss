@@ -24,6 +24,21 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/brands';
 @import '@fortawesome/fontawesome-free/scss/v4-shims';
 
+$sm: 400px;
+$md: 768px;
+$lg: 1028px;
+$breakpoints: (
+  'sm': 'screen and (max-width: 400px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1028px)'
+) !default
+
+@mixin mq($breakpoint: md){
+  @media #{map-get($breakpoints, $breakpoint)}{
+    @content;
+  }
+}
+
 $yellow : #FFE500;
 $pink: #C14F7E;
 $black: #403734;
@@ -232,15 +247,18 @@ $form-height: 40px;
 #message-container {
   max-width: $w768;
   margin: 0 auto;
-  padding: 1rem 0 10rem;
+  padding: 1rem 1rem 10rem;
   background-color: $bg-white;
   position: relative;
   .fixed{
     position: fixed;
     bottom: 0;
-    width: 100%;
-    max-width: $w768;
-    
+    width: 75%;
+    padding: 0 1rem;
+    margin: 0 -1rem;
+    @include mq(lg){
+      // background-color: red;
+    }
   }
 }
 
@@ -393,6 +411,7 @@ footer{
 }
 
 .footer-flex{
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
