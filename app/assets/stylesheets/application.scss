@@ -355,13 +355,15 @@ $form-height: 40px;
 #dm_room-container {
   max-width: $w768;
   margin: 0 auto 6rem;
-  padding: 1rem 0 10rem;
+  padding: 1rem 1rem 10rem;
   background-color: $bg-white;
   position: relative;
   .fixed{
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 75%;
+    padding: 0 1rem;
+    margin: 0 -1rem;
   }
 }
 
