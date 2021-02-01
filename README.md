@@ -2,4 +2,6 @@
 
 メッセージ送信は、全ユーザーと各ユーザーへのダイレクトメッセージの2種<br>
 画像の保存先にはS3を使用<br>
-Herokuでデプロイ（https://rails6-chat.herokuapp.com/）
+Herokuでデプロイ<br>
+https://rails6-chat.herokuapp.com/
+
